@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LeonesApi.Controllers
 {
-    [Route("api/{controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ApiUsuarios : ControllerBase
     {
