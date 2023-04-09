@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Desktop.Enums;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LeonesApi.Models;
 
@@ -7,7 +9,7 @@ public partial class Cuota
 {
     public int Id { get; set; }
 
-    public int Mes { get; set; }
+    public MesEnum Mes { get; set; }
 
     public int Año { get; set; }
 
@@ -16,10 +18,10 @@ public partial class Cuota
     public bool Cobrada { get; set; }
 
     public int SocioId { get; set; }
+    [ForeignKey("SocioId")]
+    public Socio Socio { get; set; } = null!;
 
-    public int? TesoreroId { get; set; }
-
-    public virtual Socio Socio { get; set; } = null!;
-
-    public virtual Tesorero? Tesorero { get; set; }
+    public int TesoreroId { get; set; }
+    [ForeignKey("TesoreroId")]
+    public Tesorero? Tesorero { get; set; }
 }
