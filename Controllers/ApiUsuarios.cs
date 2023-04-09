@@ -92,5 +92,10 @@ namespace LeonesApi.Controllers
         {
             return _context.Usuarios.Any(e => e.Id == id);
         }
+
+        private bool Login(string usuario, string password)
+        {
+            return _context.Usuarios.Any(e => e.User == usuario && e.Password == password);
+        }
     }
 }

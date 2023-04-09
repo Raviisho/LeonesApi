@@ -49,8 +49,8 @@ namespace LeonesApi.Controllers
         // GET: Cuotas/Create
         public IActionResult Create()
         {
-            ViewData["SocioId"] = new SelectList(_context.Socios, "Id", "Id");
-            ViewData["TesoreroId"] = new SelectList(_context.Tesoreros, "Id", "Id");
+            ViewData["SocioId"] = new SelectList(_context.Socios, "Id", "ApellidoNombre");
+            ViewData["TesoreroId"] = new SelectList(_context.Tesoreros, "Id", "ApellidoNombre");
             return View();
         }
 
@@ -67,8 +67,8 @@ namespace LeonesApi.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SocioId"] = new SelectList(_context.Socios, "Id", "Id", cuota.SocioId);
-            ViewData["TesoreroId"] = new SelectList(_context.Tesoreros, "Id", "Id", cuota.TesoreroId);
+            ViewData["SocioId"] = new SelectList(_context.Socios, "Id", "ApellidoNombre", cuota.SocioId);
+            ViewData["TesoreroId"] = new SelectList(_context.Tesoreros, "Id", "ApellidoNombre", cuota.TesoreroId);
             return View(cuota);
         }
 
@@ -85,8 +85,8 @@ namespace LeonesApi.Controllers
             {
                 return NotFound();
             }
-            ViewData["SocioId"] = new SelectList(_context.Socios, "Id", "Id", cuota.SocioId);
-            ViewData["TesoreroId"] = new SelectList(_context.Tesoreros, "Id", "Id", cuota.TesoreroId);
+            ViewData["SocioId"] = new SelectList(_context.Socios, "Id", "ApellidoNombre", cuota.SocioId);
+            ViewData["TesoreroId"] = new SelectList(_context.Tesoreros, "Id", "ApellidoNombre", cuota.TesoreroId);
             return View(cuota);
         }
 
@@ -122,8 +122,8 @@ namespace LeonesApi.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SocioId"] = new SelectList(_context.Socios, "Id", "Id", cuota.SocioId);
-            ViewData["TesoreroId"] = new SelectList(_context.Tesoreros, "Id", "Id", cuota.TesoreroId);
+            ViewData["SocioId"] = new SelectList(_context.Socios, "Id", "ApellidoNombre", cuota.SocioId);
+            ViewData["TesoreroId"] = new SelectList(_context.Tesoreros, "Id", "ApellidoNombre", cuota.TesoreroId);
             return View(cuota);
         }
 
