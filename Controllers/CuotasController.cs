@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using LeonesApi.Models;
 using LeonesApi.Data;
+using LeonesApi.Models;
 
 namespace LeonesApi.Controllers
 {
@@ -168,7 +168,7 @@ namespace LeonesApi.Controllers
 
         private bool CuotaExists(int id)
         {
-          return _context.Cuotas.Any(e => e.Id == id);
+          return (_context.Cuotas?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

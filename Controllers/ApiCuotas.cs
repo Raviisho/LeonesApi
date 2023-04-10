@@ -1,7 +1,12 @@
-﻿using LeonesApi.Data;
-using LeonesApi.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using LeonesApi.Data;
+using LeonesApi.Models;
 
 namespace LeonesApi.Controllers
 {
@@ -16,15 +21,25 @@ namespace LeonesApi.Controllers
             _context = context;
         }
 
+        // GET: api/ApiCuotas
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cuota>>> GetCuotas()
         {
+          if (_context.Cuotas == null)
+          {
+              return NotFound();
+          }
             return await _context.Cuotas.ToListAsync();
         }
 
+        // GET: api/ApiCuotas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Cuota>> GetCuota(int id)
         {
+          if (_context.Cuotas == null)
+          {
+              return NotFound();
+          }
             var cuota = await _context.Cuotas.FindAsync(id);
 
             if (cuota == null)
@@ -35,6 +50,8 @@ namespace LeonesApi.Controllers
             return cuota;
         }
 
+        // PUT: api/ApiCuotas/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCuota(int id, Cuota cuota)
         {
@@ -64,18 +81,29 @@ namespace LeonesApi.Controllers
             return NoContent();
         }
 
+        // POST: api/ApiCuotas
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Cuota>> PostCuota(Cuota cuota)
         {
+          if (_context.Cuotas == null)
+          {
+              return Problem("Entity set 'SmartsofMarcoslescanoContext.Cuotas'  is null.");
+          }
             _context.Cuotas.Add(cuota);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCuota", new { id = cuota.Id }, cuota);
         }
 
+        // DELETE: api/ApiCuotas/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCuota(int id)
         {
+            if (_context.Cuotas == null)
+            {
+                return NotFound();
+            }
             var cuota = await _context.Cuotas.FindAsync(id);
             if (cuota == null)
             {
@@ -90,7 +118,7 @@ namespace LeonesApi.Controllers
 
         private bool CuotaExists(int id)
         {
-            return _context.Cuotas.Any(e => e.Id == id);
+            return (_context.Cuotas?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
