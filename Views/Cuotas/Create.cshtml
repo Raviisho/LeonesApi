@@ -1,4 +1,7 @@
-﻿@model LeonesApi.Models.Cuota
+﻿@using LeonesApi.Enums;
+@model LeonesApi.Models.Cuota
+
+
 
 @{
     ViewData["Title"] = "Create";
@@ -14,7 +17,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Mes" class="control-label"></label>
-                <select asp-for="Mes" class="form-control"></select>
+                <select asp-for="Mes" class="form-control" asp-items="@(new SelectList(Enum.GetValues(typeof(MesEnum))))"></select>
                 <span asp-validation-for="Mes" class="text-danger"></span>
             </div>
             <div class="form-group">
