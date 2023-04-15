@@ -61,7 +61,7 @@ namespace LeonesApi.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Mes,Año,Monto,Cobrada,SocioId,TesoreroId")] Cuota cuota)
         {
-            if (ModelState.IsValid)
+            if (cuota != null)
             {
                 _context.Add(cuota);
                 await _context.SaveChangesAsync();
@@ -102,7 +102,7 @@ namespace LeonesApi.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (cuota != null)
             {
                 try
                 {
