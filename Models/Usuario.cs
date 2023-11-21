@@ -14,4 +14,7 @@ public partial class Usuario
     public string Password { get; set; } = null!;
 
     public int TipoUsuario { get; set; }
+
+    public byte[]? Imagen { get; set; }
+
 }

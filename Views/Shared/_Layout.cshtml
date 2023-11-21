@@ -20,8 +20,40 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Autor">Autor</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="SitioIsp20">Sitio ISP20</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Nuestra Carrera
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-controller="Desarrollo" asp-action="Folleto">Folleto</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="Desarrollo" asp-action="Primero">Materias 1º Año</a></li>
+                                <li><a class="dropdown-item" asp-controller="Desarrollo" asp-action="Segundo">Materias 2º Año</a></li>
+                                <li><a class="dropdown-item" asp-controller="Desarrollo" asp-action="Tercero">Materias 3º Año</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Tec.Sup. de Soporte en Infraestructura
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-controller="Infraestructura" asp-action="Folleto">Folleto</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-controller="Infraestructura" asp-action="Primero">Materias 1º Año</a></li>
+                                <li><a class="dropdown-item" asp-controller="Infraestructura" asp-action="Segundo">Materias 2º Año</a></li>
+                                <li><a class="dropdown-item" asp-controller="Infraestructura" asp-action="Tercero">Materias 3º Año</a></li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Socios" asp-action="Index">Socios</a>
                         </li>

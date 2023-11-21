@@ -66,7 +66,7 @@ public partial class SmartsofMarcoslescanoContext : DbContext
         {
             entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
 
-            entity.ToTable("__EFMigrationsHistory");
+            entity.ToTable("__EFMigrationsHistory2");
 
             entity.Property(e => e.MigrationId).HasMaxLength(150);
             entity.Property(e => e.ProductVersion).HasMaxLength(32);

@@ -18,6 +18,15 @@ namespace LeonesApi.Controllers
             return View();
         }
 
+        public IActionResult Autor()
+        {
+            return View();
+        }
+        public IActionResult SitioIsp20()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
